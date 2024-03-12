@@ -8,6 +8,11 @@ import { COLORS, FONTS, SIZES } from '../constants';
 import React from 'react'
 
 const DetailsDesc = ({data}) => {
+
+    const[text, setText] = useState(data.description.slice(0, 100));
+    const[readmore, setReadMore] = useState(false)
+    
+
   return (
     <>
         <View style={{
@@ -41,7 +46,26 @@ const DetailsDesc = ({data}) => {
                     color:COLORS.secondary,
                     lineHeight: SIZES.large
                 }}>
-                    {data.description}
+                    {text}
+                    {!readmore && '...'}
+                    <Text 
+                    style={{
+                          fontSize: SIZES.small,
+                          fontFamily: FONTS.semiBold,
+                          color:COLORS.primary,
+                    }}
+                        onPress={() => {
+                            if(!readmore){
+                                setText(data.description);
+                                setReadMore(true);
+                            }else{
+                                setText(data.description.slice(0,100));
+                                setReadMore(false);
+                            }
+                        }}
+                    >
+                        {readmore ? ' Show less' : " Read more"}
+                    </Text>
                 </Text>
             </View>
         </View>
