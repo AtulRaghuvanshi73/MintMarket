@@ -2,7 +2,6 @@
 
 ### An application built using React native which can transfer and store NFTs, mint them and connect wallets.
 
-#### Problem it solves : designing and developing a comprehensive application to facilitate the seamless transfer, storage, minting, and wallet connectivity for Non-Fungible Tokens (NFTs). 
 
 #### Technologies Used: 
   <ul>
