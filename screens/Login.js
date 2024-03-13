@@ -83,11 +83,14 @@ const Login = () => {
                     <ActivityIndicator size="large" color="#0000ff"/>
                 ) : (
                     <>
-                        <Button style={{
-                            marginVertical: 10
-                        }}
+                        <Button style={styles.buttonSpacer}
                         title="Login" onPress={redirectHome}/>
-                        <Button title="Create Account" onPress={signUp} />
+                    
+                        <Button 
+                            style={{
+                                paddingTop: 10
+                            }}
+                        title="Create Account" onPress={signUp} />
                     </>
                 )
             }
@@ -105,13 +108,38 @@ const styles = StyleSheet.create(
             flex: 1,
             justifyContent: 'center',
         },
-        input:{
-            marginVertical: 4,
+        logoContainer: {
+            alignItems: 'center',
+            paddingBottom: 50,
+        },
+        logo: {
+            width: 100,
+            height: 100,
+        },
+        input: {
+            marginVertical: 8,
             height: 50,
             borderWidth: 1,
             borderRadius: 4,
             padding: 10,
             backgroundColor: '#fff',
-        }
+        },
+        buttonContainer: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginVertical: 10,
+        },
+        buttonSpacer: {
+            width: 10,
+        },
+        button: {
+            flex: 1,
+        },
+        loginButton: {
+            backgroundColor: '#007bff', // Change to desired color
+        },
+        createButton: {
+            backgroundColor: '#28a745', // Change to desired color
+        },
     }
 )

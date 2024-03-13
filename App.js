@@ -1,3 +1,4 @@
+
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import { useFonts } from 'expo-font';
@@ -8,6 +9,7 @@ import Login from './screens/Login';
 import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { FIREBASE_AUTH } from './FirebaseConfig';
+import Mint from './components/Mint';
 
 const Stack = createStackNavigator();
 
@@ -20,6 +22,22 @@ const theme ={
     background: "transparent"
   }
 }
+
+// const projectId = '090ef6025b76598905f0f585acd29251'
+
+// // 2. Create config
+// const metadata = {
+//   name: 'Web3Modal RN',
+//   description: 'Web3Modal RN Example',
+//   url: 'https://web3modal.com',
+//   icons: ['https://avatars.githubusercontent.com/u/37784886'],
+//   redirect: {
+//     native: 'YOUR_APP_SCHEME://',
+//     universal: 'YOUR_APP_UNIVERSAL_LINK.com'
+//   }
+// }
+
+
 
 export default function App() {
 
@@ -43,9 +61,10 @@ export default function App() {
   // }, [])
 
   return (
+  
     <NavigationContainer theme={theme}>
       <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Home">
-        <Stack.Screen name="Home" component={Login} options={{headerShown: false}} />
+        <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
         <Stack.Screen name="Details" component={Details} />
       </Stack.Navigator>
     </NavigationContainer>
