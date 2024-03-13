@@ -3,8 +3,8 @@ import { WagmiConfig } from 'wagmi'
 import { goerli } from 'viem/chains'
 import { createWeb3Modal, defaultWagmiConfig, Web3Modal, W3mButton } from '@web3modal/wagmi-react-native'
 
-
-import { View, Text, StyleSheet } from 'react-native'
+import Profile from './Profile'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import React from 'react'
 
 
@@ -38,14 +38,23 @@ createWeb3Modal({
 
 const Mint = () => {
   return (
+    
     <WagmiConfig config={wagmiConfig}>
+      <Profile />
     <View style={styles.container}>
-      <W3mButton balance='show'/>
+
+      <W3mButton balance='show' style={{
+         position: 'absolute',
+         left: 0,
+         right: 0,
+         top: 0,
+         bottom: 0
+      }}/>
     </View>
     <Web3Modal />
-
+      
     </WagmiConfig>
-
+    
   )
 }
 
@@ -55,7 +64,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: "center",
         justifyContent: "center"
-    }
+    },
 })
 
 export default Mint

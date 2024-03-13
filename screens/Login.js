@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, Pressable } from 'react-native'
 import React from 'react'
 import {useState} from 'react';
 import { FIREBASE_AUTH } from '../FirebaseConfig';
@@ -82,15 +82,19 @@ const Login = () => {
             {loading ? (
                     <ActivityIndicator size="large" color="#0000ff"/>
                 ) : (
-                    <>
-                        <Button style={styles.buttonSpacer}
+                    <>  
+                    <View>
+                        <Button style={styles.button}
                         title="Login" onPress={redirectHome}/>
                     
-                        <Button 
+                        {/* <Button 
                             style={{
-                                paddingTop: 10
+                                : 10
                             }}
-                        title="Create Account" onPress={signUp} />
+                        title="Create Account" onPress={signUp} /> */}
+                        <View style={styles.space} />
+                        <Button style={styles.button} title="SignUp" onPress={signUp}/>
+                        </View>
                     </>
                 )
             }
@@ -107,6 +111,7 @@ const styles = StyleSheet.create(
             marginHorizontal: 20,
             flex: 1,
             justifyContent: 'center',
+            backgroundColor: '#fff',
         },
         logoContainer: {
             alignItems: 'center',
@@ -133,13 +138,25 @@ const styles = StyleSheet.create(
             width: 10,
         },
         button: {
-            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingVertical: 12,
+            paddingHorizontal: 32,
+            borderRadius: 20,
+            elevation: 3,
+            backgroundColor: 'blue',
+            paddingVertical:10
+
         },
         loginButton: {
-            backgroundColor: '#007bff', // Change to desired color
+            backgroundColor: '#007bff', 
         },
         createButton: {
-            backgroundColor: '#28a745', // Change to desired color
+            backgroundColor: '#28a745', 
         },
+        space: {
+            width: 20, 
+            height: 10,
+          },
     }
 )
